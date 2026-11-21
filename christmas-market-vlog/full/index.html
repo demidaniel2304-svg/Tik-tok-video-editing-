@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      body { font-family: "Inter", sans-serif; }
+
+      /* soft dark gradient at the top so titles read over bright skies and lights */
+      #scrim {
+        position: absolute; left: 0; top: 0; width: 1080px; height: 960px;
+        background: linear-gradient(180deg, rgba(10,6,4,0.66) 0%, rgba(10,6,4,0.34) 55%, rgba(10,6,4,0) 100%);
+        z-index: 2; pointer-events: none;
+      }
+
+      .title { position: absolute; left: 130px; right: 170px; top: 330px; z-index: 4; }
+      .kicker {
+        display: block; font-family: "Inter", sans-serif; font-weight: 700;
+        font-size: 40px; letter-spacing: 0.22em; text-transform: uppercase;
+        color: #fff6e8; text-shadow: 0 2px 14px rgba(0,0,0,0.6); margin-bottom: 14px;
+      }
+      .main {
+        display: block; font-family: "Playfair Display", serif; font-style: italic; font-weight: 700;
+        font-size: 112px; line-height: 1.02; color: #f5cf7c;
+        text-shadow: 0 0 28px rgba(255,190,90,0.45), 0 4px 18px rgba(0,0,0,0.65);
+      }
+      .main.small { font-size: 76px; line-height: 1.08; }
+      .main .w { display: inline-block; }
+      .sub {
+        display: block; margin-top: 22px; font-family: "Inter", sans-serif; font-weight: 600;
+        font-size: 40px; color: #fff6e8; text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+      }
+      .rule {
+        display: block; width: 180px; height: 5px; margin-top: 26px;
+        background: #c8323c; border-radius: 3px; transform-origin: left center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      }
+
+      /* closing tip card */
+      #dim { position: absolute; inset: 0; background: rgba(8,12,10,0.62); z-index: 3; }
+      #end { position: absolute; left: 130px; right: 170px; top: 420px; z-index: 4; }
+      #end .main { font-size: 104px; }
+      #end ol { list-style: none; margin-top: 56px; display: flex; flex-direction: column; gap: 30px; }
+      #end li {
+        display: flex; align-items: center; gap: 26px;
+        font-family: "Inter", sans-serif; font-weight: 600; font-size: 48px; color: #fff6e8;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      }
+      #end li b {
+        flex: none; width: 76px; height: 76px; border-radius: 50%;
+        background: #c8323c; color: #fff; font-size: 40px; font-weight: 700;
+        display: flex; align-items: center; justify-content: center; text-shadow: none;
+      }
+      #end .place {
+        margin-top: 60px; font-family: "Inter", sans-serif; font-weight: 700; font-size: 32px;
+        letter-spacing: 0.12em; text-transform: uppercase; color: #f5cf7c;
+      }
+
+      #t3 .main { text-shadow: 0 0 22px rgba(0,0,0,0.75), 0 4px 18px rgba(0,0,0,0.8); }
+      #t1 .kicker { font-size: 34px; letter-spacing: 0.16em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="33.0" data-width="1080" data-height="1920">
+      <video id="a-roll" class="clip" src="base.mp4" playsinline
+        data-start="0" data-duration="33.0" data-track-index="0" data-has-audio="true"
+        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
+
+      <div id="scrim"></div>
+
+      <!-- Dickens Inn outside: 0 – 3.1 -->
+      <div id="t1" class="title clip" data-start="0" data-duration="2.6" data-track-index="1">
+        <span class="kicker">Christmas market day out</span>
+        <span class="main"><span class="w">First</span> <span class="w">stop:</span> <span class="w">the</span> <span class="w">Dickens</span> <span class="w">Inn</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- inside the pub: 2.8 – 6.2 -->
+      <div id="t2" class="title clip" data-start="2.7" data-duration="2.9" data-track-index="2">
+        <span class="kicker">Fun fact</span>
+        <span class="main small"><span class="w">An</span> <span class="w">18th-century</span> <span class="w">warehouse,</span> <span class="w">turned</span> <span class="w">pub</span> <span class="w">in</span> <span class="w">1976</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- food: 5.9 – 9.9 -->
+      <div id="t3" class="title clip" data-start="5.75" data-duration="3.5" data-track-index="3">
+        <span class="kicker">Before the market</span>
+        <span class="main"><span class="w">Fish</span> <span class="w">&amp;</span> <span class="w">chips</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- market walk: 9.6 – 13.8 -->
+      <div id="t4" class="title clip" data-start="9.45" data-duration="3.7" data-track-index="4">
+        <span class="kicker">Then</span>
+        <span class="main"><span class="w">The</span> <span class="w">Christmas</span> <span class="w">Market</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- hot chocolate stall: 20.3 – 24.3 -->
+      <div id="t5" class="title clip" data-start="20.15" data-duration="3.5" data-track-index="5">
+        <span class="kicker">Next stop</span>
+        <span class="main"><span class="w">Hot</span> <span class="w">Chocolate</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- the hot chocolate: 24.0 – 26.6 -->
+      <div id="t6" class="title clip" data-start="23.8" data-duration="2.15" data-track-index="6">
+        <span class="kicker">The verdict</span>
+        <span class="main"><span class="w">Worth</span> <span class="w">the</span> <span class="w">queue</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- galleon: 26.3 – 33.3 -->
+      <div id="t7" class="title clip" data-start="26.15" data-duration="3.15" data-track-index="7">
+        <span class="kicker">Right next door</span>
+        <span class="main small"><span class="w">A</span> <span class="w">replica</span> <span class="w">Spanish</span> <span class="w">galleon</span></span>
+        <span class="sub">Here until 10 January</span>
+        <span class="rule"></span>
+      </div>
+
+      <div id="dim" class="clip" data-start="29.3" data-duration="3.7" data-track-index="8"></div>
+      <div id="end" class="clip" data-start="29.3" data-duration="3.7" data-track-index="9">
+        <span class="kicker">Small market?</span>
+        <span class="main"><span class="w">Make</span> <span class="w">a</span> <span class="w">day</span> <span class="w">of</span> <span class="w">it</span></span>
+        <ol>
+          <li><b>1</b>Lunch at the Dickens Inn</li>
+          <li><b>2</b>The Christmas market</li>
+          <li><b>3</b>See the galleon</li>
+        </ol>
+        <p class="place">St Katharine Docks · London</p>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const DUR = 33.0;
+
+      function title(id, start, end) {
+        const el = "#" + id;
+        tl.from(el + " .kicker", { opacity: 0, y: 24, duration: 0.4, ease: "power2.out" }, start + 0.03);
+        tl.from(el + " .main .w", { opacity: 0, y: 50, rotate: -3, duration: 0.5, ease: "back.out(1.6)", stagger: 0.07 }, start + 0.1);
+        if (document.querySelector(el + " .sub")) tl.from(el + " .sub", { opacity: 0, y: 16, duration: 0.4, ease: "power2.out" }, start + 0.55);
+        tl.from(el + " .rule", { scaleX: 0, duration: 0.45, ease: "power3.out" }, start + 0.4);
+        tl.to(el, { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, end - 0.3);
+      }
+      title("t1", 0, 2.6);
+      title("t2", 2.7, 5.6);
+      title("t3", 5.75, 9.25);
+      title("t4", 9.45, 13.15);
+      title("t5", 20.15, 23.65);
+      title("t6", 23.8, 25.95);
+      title("t7", 26.15, 29.3);
+
+      // closing card: dim the footage, then bring in headline and the three steps
+      tl.from("#dim", { opacity: 0, duration: 0.4, ease: "power1.out" }, 29.3);
+      tl.from("#end .kicker", { opacity: 0, y: 24, duration: 0.4, ease: "power2.out" }, 29.4);
+      tl.from("#end .main .w", { opacity: 0, y: 50, rotate: -3, duration: 0.5, ease: "back.out(1.6)", stagger: 0.07 }, 29.5);
+      tl.from("#end li", { opacity: 0, x: -40, duration: 0.4, ease: "power2.out", stagger: 0.25 }, 30.1);
+      tl.from("#end .place", { opacity: 0, duration: 0.4 }, 30.6);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -38,3 +38,19 @@ cd project
 ./build-base.sh                     # stitch the raw clips (FFmpeg)
 npx hyperframes render -q delivery -o ../final/christmas-market-vlog_tiktok.mp4
 ```
+
+## Full day-out vlog
+
+`final/christmas-market-day-out_tiktok.mp4`: 33s, 1080×1920 vertical, for TikTok. Built from `storyboard.html`.
+
+Order: Dickens Inn outside → inside → fish and chips → market walk → phone box and mulled wine →
+trees → hot chocolate stall → the hot chocolate → the Galeón Andalucía (half speed) → closing tip card.
+Original sound, levelled. HDR clips are converted to standard colour so every shot matches. No snow.
+
+To change text or timing, edit `full/index.html` (titles) or the shot list in `full/build-base.sh`, then:
+
+```bash
+cd full
+./build-base.sh
+npx hyperframes render -q delivery --sdr -o ../final/christmas-market-day-out_tiktok.mp4
+```
