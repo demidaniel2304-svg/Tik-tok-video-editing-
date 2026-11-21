@@ -4,7 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")"; R=../raw
 V="scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,format=yuv420p,setsar=1"
 A="aresample=48000,aformat=channel_layouts=stereo"
-ffmpeg -y -i $R/02_PXL_20261115_172246410.mp4 -i $R/01_PXL_20261115_172159189.mp4 -i $R/03_PXL_20261115_172948948.mp4 -filter_complex "
+ffmpeg -y -i $R/02_PXL_20261115_172246410.mp4 -i $R/01_PXL_20261115_172159189.mp4 -i $R/05_PXL_20261115_172948948.mp4 -filter_complex "
 [0:v]$V,settb=1/30[v0];[1:v]$V,settb=1/30[v1];[2:v]$V,settb=1/30[v2];
 [0:a]$A[a0];[1:a]$A[a1];[2:a]$A[a2];
 [v0][v1]xfade=transition=fade:duration=0.3:offset=4.8[v01];[v01][v2]xfade=transition=fade:duration=0.3:offset=9.35,fade=t=out:st=11.4:d=0.55[v];
