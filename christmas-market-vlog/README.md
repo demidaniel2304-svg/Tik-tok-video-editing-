@@ -54,3 +54,9 @@ cd full
 ./build-base.sh
 npx hyperframes render -q delivery --sdr -o ../final/christmas-market-day-out_tiktok.mp4
 ```
+
+### Voiceover version
+
+`final/christmas-market-day-out_voiceover.mp4`: same edit, but only the opening title
+("Christmas market day out · First stop: the Dickens Inn"). No other titles and no closing card,
+so there's room for a voiceover. Project: `voiceover/` (run `./build-base.sh`, then render as above).
