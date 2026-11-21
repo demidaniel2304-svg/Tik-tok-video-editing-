@@ -16,7 +16,7 @@ Raw clips filmed 15 Nov 2026, in shooting order.
 | 10 | `raw/10_PXL_20261115_172336071.mp4` | 17:23:36 | 6.2s | Looking down at the pavement and pushchair |
 | 11 | `raw/11_PXL_20261115_172948948.mp4` | 17:29:48 | 2.6s | The hot chocolate |
 
-Total raw footage: ~53 seconds. Still to come: you in the car with the kids (opener). Optional: a second galleon shot.
+Total raw footage: ~53 seconds. All footage in. Optional: a second galleon shot. The car opener was dropped.
 
 Running order: see `storyboard.html`.
 
